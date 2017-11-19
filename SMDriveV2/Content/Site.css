@@ -1,0 +1,102 @@
+﻿body {
+    padding-top: 50px;
+    background-color: dimgray;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-left: 210px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+img.logoMenu{
+    height: 50px;
+}
+
+/*MENU LATERAL*/
+.navbar-fixed-left {
+    width: 240px;
+    position: fixed;
+    border-radius: 0;
+    height: 100%;
+}
+
+.navbar-fixed-left .navbar-nav > li {
+    float: none; /* Cancel default li float: left */
+    width: 239px;
+}
+
+.navbar-fixed-left + .container {
+    padding-left: 260px;
+}
+
+/* On using dropdown menu (To right shift popuped) */
+.navbar-fixed-left .navbar-nav > li > .dropdown-menu {
+    margin-top: -50px;
+    margin-left: 240px;
+}
+
+/*FIM MENU LATERAL*/
+
+/*MOSAICO INICIAL*/
+
+#mosaico {
+    height: 100%;
+    width: 100%;
+    float: right;
+    text-align: center;
+}
+
+#mosaico a {
+    padding-left: 0.5px;
+}
+
+#mosaico a img {
+    filter: brightness(50%);
+    width: 24%;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}
+
+#logotipoSmdrive {
+    z-index: 10;
+    max-width: 100%;
+    max-height: 100%;
+    margin-left: 15%;
+    margin-top: -2%;
+    position: absolute;
+}
+
+/*MOSAICO INICIAL*/
+
+
+#conteudoHistoria{
+    margin-left: 150px;
+}
+
+#conteudoAlunos {
+    margin-left: 150px;
+}
+
+#conteudoCadastro {
+    margin-left: 100px;
+}
+
+#conteudoLogin {
+    margin-left: 100px;
+}

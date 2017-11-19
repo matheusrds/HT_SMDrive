@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "SMDrive";
+}
+
+    <div id="mosaico">
+
+        <img src="~/Content/Imagens/LogoSmdrive.png" id="logotipoSmdrive" />
+
+        @foreach (var item in ViewBag.imagem)
+
+        {
+            @Html.Raw(item)
+        }
+
+    </div>
