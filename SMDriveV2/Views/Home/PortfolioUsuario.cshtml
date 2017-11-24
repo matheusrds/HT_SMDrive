@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "PortfolioUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PortfolioUsuario</h2>
+
+@{int i = 0;}
+@foreach (var item in ViewBag.imagens)
+{
+    <div class="card" style="width: 20rem;">
+        <img class="card-img-top" src="@item" alt="@ViewBag.nomes[i]">
+        <div class="card-block">
+            <h4 class="card-title">@ViewBag.nomes[i]</h4>
+            <p class="card-text">@ViewBag.tipos[i]</p>
+            <a href="@ViewBag.links[i]" class="btn btn-primary">Veja mais...</a>
+        </div>
+    </div>
+
+    i++;
+}
+
+

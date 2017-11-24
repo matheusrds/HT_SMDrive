@@ -32,5 +32,19 @@ namespace SMDriveV2.Controllers
 
             return View();
         }
+
+        public ActionResult PortfolioUsuario()
+        {
+            ViewBag.Message = "Em Construção...";
+
+            var projetos = Extrator.ExtraiPortfolioBehance();
+
+            ViewBag.imagens = projetos.Item1;
+            ViewBag.links = projetos.Item2;
+            ViewBag.nomes = projetos.Item3;
+            ViewBag.tipos = projetos.Item4;
+
+            return View();
+        }
     }
 }
