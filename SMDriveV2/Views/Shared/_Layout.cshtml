@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href='@Url.Action("Index", "Home")'>
-                    <img src="~/Content/Imagens/LogoSmdrive.png" style="height: 40px; margin-top:5px;" class="logoMenu" />
+                    <img src="~/Content/Imagens/LogoSmdrive.png" class="logoMenu" />
                 </a>
                 @*@Html.ActionLink("SMDrive", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
@@ -60,7 +60,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - SMDrive</p>
+            @*<p>&copy; @DateTime.Now.Year - SMDrive</p>*@
         </footer>
     </div>
 

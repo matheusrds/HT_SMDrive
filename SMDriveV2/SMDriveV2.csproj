@@ -208,6 +208,9 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Imagens\default-page.png" />
+    <Content Include="Content\Imagens\hydratec-logo.png" />
+    <Content Include="Content\Imagens\ProfileBlank.png" />
     <Content Include="Content\Imagens\LogoSmdrive.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -264,6 +267,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\PortfolioUsuario.cshtml" />
+    <Content Include="Views\Home\Perfil.cshtml" />
+    <Content Include="Views\Home\Aptidoes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

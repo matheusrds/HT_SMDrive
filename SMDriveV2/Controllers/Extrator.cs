@@ -26,6 +26,8 @@ namespace SMDriveV2.Controllers
         {
             List<string> imagens = new List<string>();
 
+            List<string> imagensEmb = new List<string>();
+
             var url = "https://www.behance.net/brenoGomesSousa";
 
             var data = new MyWebClient().DownloadString(url);
@@ -46,7 +48,10 @@ namespace SMDriveV2.Controllers
                 }
             }
 
-            return imagens;
+            var rnd = new Random();
+            imagensEmb = imagens.OrderBy(item => rnd.Next()).ToList();
+
+            return imagensEmb;
         }
 
         public static Tuple<List<string>, List<string>, List<string>, List<string>> ExtraiPortfolioBehance()

@@ -46,5 +46,19 @@ namespace SMDriveV2.Controllers
 
             return View();
         }
+
+        public ActionResult Perfil()
+        {
+            ViewBag.Message = "Em Construção...";
+
+            return View();
+        }
+
+        public ActionResult Aptidoes()
+        {
+            ViewBag.Message = "Em Construção...";
+
+            return View();
+        }
     }
 }

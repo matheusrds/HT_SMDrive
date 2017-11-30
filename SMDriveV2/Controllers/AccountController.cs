@@ -58,6 +58,13 @@ namespace SMDriveV2.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+
+            Extrator ext = new Extrator();
+
+            var imgs = ext.ExtraiHAPBehance();
+
+            ViewBag.imagem = imgs;
+
             return View();
         }
 
@@ -139,6 +146,12 @@ namespace SMDriveV2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            Extrator ext = new Extrator();
+
+            var imgs = ext.ExtraiHAPBehance();
+
+            ViewBag.imagem = imgs;
+
             return View();
         }
 

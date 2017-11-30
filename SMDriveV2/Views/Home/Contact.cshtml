@@ -1,7 +1,18 @@
 ﻿@{
     ViewBag.Title = "Alunos";
 }
-<div id="conteudoAlunos">
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+<div id="conteudoPortfolio">
+
+    @for (int i = 0; i < 8; i++)
+    {
+        <div class="card">
+            <img src="~/Content/Imagens/ProfileBlank.png" alt="Aluno" style="width:100%">
+            <div class="container">
+                <h4><b>Nome</b></h4>
+                <p>Área de interesse</p>
+                <a href="#" class="btn btn-default" role="button">Portfolio</a>
+            </div>
+        </div>
+    }
+
 </div>
