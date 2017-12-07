@@ -1,4 +1,8 @@
-﻿/*MOSAICO */
+﻿html{
+    font-family:Roboto;
+}
+
+/*MOSAICO */
 body {
     padding-top: 50px;
     /*background-color: dimgray;*/
@@ -50,12 +54,14 @@ img.logoMenu {
 
 .navbar-fixed-left + .container {
     padding-left: 260px;
+    width:auto;
 }
 
 /* On using dropdown menu (To right shift popuped) */
 .navbar-fixed-left .navbar-nav > li > .dropdown-menu {
     margin-top: -50px;
     margin-left: 240px;
+    width:auto;
 }
 .MenuLat {
     margin-top: 70%;
@@ -215,3 +221,27 @@ img.logoMenu {
 }
 
 /* PAGINA HISTORIA  - FIM*/
+
+/*Inventário*/
+.card{
+    height: 350px;
+    width: 22%;
+    text-align:left;
+   }
+
+#foto {
+    height:150px; 
+    width:90%; 
+    background-color:gainsboro; 
+    margin-top:5%; 
+    margin-left:5%;"
+}
+
+
+/*aptidoes*/
+.Aptidoes {
+    margin-left:3%;
+    width:35%;
+    display:block;
+}
+

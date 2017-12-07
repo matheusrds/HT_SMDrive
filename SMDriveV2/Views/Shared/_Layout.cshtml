@@ -1,9 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -26,8 +28,8 @@
     </li>
     <li><a href="#">Link2</a></li>*@
             <li class="MenuLat">@Html.ActionLink("Início", "Index", "Home")</li>
-            <li>@Html.ActionLink("História", "About", "Home")</li>
-            <li>@Html.ActionLink("Alunos", "Contact", "Home")</li>
+            <li >@Html.ActionLink("História", "About", "Home")</li>
+            <li >@Html.ActionLink("Inventário", "Contact", "Home")</li>
         </ul>
     </div>
    
