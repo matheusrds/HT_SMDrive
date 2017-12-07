@@ -1,19 +1,26 @@
 ﻿@{
-    ViewBag.Title = "Inventário";
+    ViewBag.Title = "Alunos";
 }
 <div id="conteudoPortfolio">
 
-    @for (int i = 0; i < 8; i++)
+    @if (ViewBag.Usuarios != null)
     {
-        <div class="card">
-            <div id="foto" alt="Inventário"></div>
-            <div class="container">
-                <h4 style="color:#06586f"><b>Título</b></h4>
-                <p>Nome</p>
-                <p>Área de interesse</p>
-                <a href="#" class="btn btn-default" role="button" style="margin:15% 0% 5% 30%; background-color:#ed8239; color:#ffffff " >Portfolio</a>
+        foreach (var item in ViewBag.Usuarios)
+        {
+            <div class="card">
+                <img src="~/Content/Imagens/ProfileBlank.png" alt="Aluno" style="width:100%">
+                <div class="container">
+                    <h4><b>@item.UserName</b></h4>
+                    <p>Área de interesse</p>
+                    <a href="#" class="btn btn-default" role="button">Portfolio</a>
+                </div>
             </div>
-        </div>
+        }
     }
+    else
+    {
+        <h4> <br/> <br/> <br/> Ops... Ocorreu um erro ao carregar as informações :( <br />  Tente atualizar a página! </h4>
+    }
+
 
 </div>

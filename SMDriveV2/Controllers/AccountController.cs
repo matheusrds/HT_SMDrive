@@ -60,8 +60,7 @@ namespace SMDriveV2.Controllers
             ViewBag.ReturnUrl = returnUrl;
 
             Extrator ext = new Extrator();
-
-            var imgs = ext.ExtraiHAPBehance();
+            var imgs = ext.MontaMosaico();
 
             ViewBag.imagem = imgs;
 
@@ -82,7 +81,16 @@ namespace SMDriveV2.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = await UserManager.FindByEmailAsync(model.Email);
+            //if (user != null)
+            //{
+            //    if (!await UserManager.IsEmailConfirmedAsync(user.Id))
+            //    {
+            //        ViewBag.errorMessage = "You must have a confirmed email to log on.";
+            //        return View("Error");
+            //    }
+            //}
+            var result = await SignInManager.PasswordSignInAsync(user.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -93,7 +101,7 @@ namespace SMDriveV2.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Tentativa de login inválida!");
                     return View(model);
             }
         }
@@ -136,7 +144,7 @@ namespace SMDriveV2.Controllers
                     return View("Lockout");
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid code.");
+                    ModelState.AddModelError("", "Código inválido!");
                     return View(model);
             }
         }
@@ -147,8 +155,7 @@ namespace SMDriveV2.Controllers
         public ActionResult Register()
         {
             Extrator ext = new Extrator();
-
-            var imgs = ext.ExtraiHAPBehance();
+            var imgs = ext.MontaMosaico();
 
             ViewBag.imagem = imgs;
 
@@ -164,7 +171,13 @@ namespace SMDriveV2.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    Matricula = Convert.ToInt32(model.Matricula),
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    UrlBehance = model.UrlBehance
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -58,12 +58,24 @@ namespace SMDriveV2.Models
         [Display(Name = "Senha")]
         public string Password { get; set; }
 
-        [Display(Name = "Recuperar")]
+        [Display(Name = "Lembrar senha")]
         public bool RememberMe { get; set; }
     }
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Matricula")]
+        public string Matricula { get; set; }
+
+        [Required]
+        [Display(Name = "Behance")]
+        public string UrlBehance { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
