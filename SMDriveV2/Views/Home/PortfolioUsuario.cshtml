@@ -6,19 +6,27 @@
 
 <div id="conteudoPortfolio">
 
-    @{int i = 0;}
-    @foreach (var item in ViewBag.imagens)
+    @if (ViewBag.imagens != null)
     {
-        <div class="card">
-            <img src="@item" alt="@ViewBag.nomes[i]" style="width:100%">
-            <div class="container">
-                <h4><b>@ViewBag.nomes[i]</b></h4>
-                <p>@ViewBag.tipos[i]</p>
-                <a href="@ViewBag.links[i]" class="btn btn-default" role="button">Veja mais...</a>
-            </div>
-        </div>
+        int i = 0;
 
-        i++;
+        foreach (var item in ViewBag.imagens)
+        {
+            <div class="card">
+                <img src="@item" alt="@ViewBag.nomes[i]" style="width:100%">
+                <div class="container">
+                    <h4><b>@ViewBag.nomes[i]</b></h4>
+                    <p>@ViewBag.tipos[i]</p>
+                    <a href="@ViewBag.links[i]" class="btn btn-default" role="button">Veja mais...</a>
+                </div>
+            </div>
+
+            i++;
+        }
+    }
+    else
+    {
+        <h4> <br/> <br/> <br/> Ops... Ocorreu um erro ao carregar as informações do Portfólio :( <br/>  Tente atualizar a página ou entre novamente! </h4>
     }
 
 </div>

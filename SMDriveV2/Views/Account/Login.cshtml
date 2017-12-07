@@ -5,9 +5,12 @@
 }
 
 <div id="mosaico">
-    @foreach (var item in ViewBag.imagem)
+    @if (ViewBag.imagem != null)
     {
-        @Html.Raw(item)
+        foreach (var item in ViewBag.imagem)
+        {
+            @Html.Raw(item)
+        }
     }
 </div>
 

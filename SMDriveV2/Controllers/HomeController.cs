@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using SMDriveV2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +13,7 @@ namespace SMDriveV2.Controllers
         public ActionResult Index()
         {
             Extrator ext = new Extrator();
-
-            var imgs = ext.ExtraiHAPBehance();
+            var imgs = ext.MontaMosaico();
 
             ViewBag.imagem = imgs;
 
@@ -29,6 +30,9 @@ namespace SMDriveV2.Controllers
         public ActionResult Contact()
         {
             ViewBag.Message = "Em Construção...";
+            var usuarios = (new ApplicationDbContext()).Users.ToList().OrderBy(o => o.UserName);
+
+            ViewBag.Usuarios = usuarios;
 
             return View();
         }
@@ -37,13 +41,18 @@ namespace SMDriveV2.Controllers
         {
             ViewBag.Message = "Em Construção...";
 
-            var projetos = Extrator.ExtraiPortfolioBehance();
+            string userId = User.Identity.GetUserId();
+            if (!String.IsNullOrEmpty(userId))
+            {
+                var user = (new ApplicationDbContext()).Users.FirstOrDefault(s => s.Id == userId);
+                var projetos = Extrator.ExtraiPortfolioBehance(user.UrlBehance);
 
-            ViewBag.imagens = projetos.Item1;
-            ViewBag.links = projetos.Item2;
-            ViewBag.nomes = projetos.Item3;
-            ViewBag.tipos = projetos.Item4;
-
+                ViewBag.imagens = projetos.Item1;
+                ViewBag.links = projetos.Item2;
+                ViewBag.nomes = projetos.Item3;
+                ViewBag.tipos = projetos.Item4;
+            }
+            
             return View();
         }
 

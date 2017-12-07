@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -25,9 +25,22 @@
         </ul>
     </li>
     <li><a href="#">Link2</a></li>*@
-            <li class="MenuLat">@Html.ActionLink("Início", "Index", "Home")</li>
-            <li>@Html.ActionLink("História", "About", "Home")</li>
-            <li>@Html.ActionLink("Alunos", "Contact", "Home")</li>
+            
+            @{
+                if (Request.IsAuthenticated)
+                {
+                    <li class="MenuLat">@Html.ActionLink("Perfil", "Perfil", "Home")</li>
+                    <li>@Html.ActionLink("Aptidoes", "Aptidoes", "Home")</li>
+                    <li>@Html.ActionLink("Portfolio", "PortfolioUsuario", "Home")</li>
+                }
+                else
+                {
+                    <li class="MenuLat">@Html.ActionLink("Início", "Index", "Home")</li>
+                    <li>@Html.ActionLink("História", "About", "Home")</li>
+                    <li>@Html.ActionLink("Alunos", "Contact", "Home")</li>
+                }
+            }
+            
         </ul>
     </div>
    

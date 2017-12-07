@@ -5,11 +5,14 @@
 
 <div id="mosaico">
 
-    @foreach (var item in ViewBag.imagem)
-
+    @if (ViewBag.imagem != null)
     {
-        @Html.Raw(item)
+        foreach (var item in ViewBag.imagem)
+        {
+            @Html.Raw(item)
+        }
     }
+    
 </div>
 
 <div id="conteudoCadastro" style="margin-top:80px;">
@@ -18,13 +21,31 @@
     @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
-        @*<h4>Create a new account.</h4>*@
-        <hr />
+        @*<h4>Create a new account.</h4>
+    <hr />*@
         @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group" style="margin-left: 5px;margin-top:40px;">
+            @Html.LabelFor(m => m.Matricula, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Matricula, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left: 5px;margin-top:40px;">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+        </div>
         <div class="form-group" style="margin-left: 5px;margin-top:40px;" >
             @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group" style="margin-left: 5px;margin-top:40px;">
+            @Html.LabelFor(m => m.UrlBehance, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UrlBehance, new { @class = "form-control" })
             </div>
         </div>
         <div class="form-group" style="margin-left: 5px;">
